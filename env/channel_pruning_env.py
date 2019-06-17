@@ -69,7 +69,7 @@ class ChannelPruningEnv:
         print('=> original acc: {:.3f}%'.format(self.org_acc))
         self.org_model_size = sum(self.wsize_list)
         print('=> original weight size: {:.4f} M param'.format(self.org_model_size * 1. / 1e6))
-        self.org_flops = sum([v['flops'] for _, v in self.layer_info_dict.items()])
+        self.org_flops = sum(self.flops_list)
         print('=> FLOPs:')
         print([self.layer_info_dict[idx]['flops']/1e6 for idx in sorted(self.layer_info_dict.keys())])
         print('=> original FLOPs: {:.4f} M'.format(self.org_flops * 1. / 1e6))
@@ -390,6 +390,7 @@ class ChannelPruningEnv:
         self.data_saver = []
         self.layer_info_dict = dict()
         self.wsize_list = []
+        self.flops_list = []
 
         from lib.utils import measure_layer_for_pruning
 
@@ -427,6 +428,7 @@ class ChannelPruningEnv:
                         self.layer_info_dict[idx]['params'] = m_list[idx].params
                         self.layer_info_dict[idx]['flops'] = m_list[idx].flops
                         self.wsize_list.append(m_list[idx].params)
+                        self.flops_list.append(m_list[idx].flops)
                 for idx in self.prunable_idx:
                     f_in_np = m_list[idx].input_feat.data.cpu().numpy()
                     f_out_np = m_list[idx].output_feat.data.cpu().numpy()
