@@ -94,8 +94,8 @@ Detailed statistics are as follows:
 
 Current code base is tested under following environment:
 
-1. Python 3.6.5
-2. PyTorch 0.4.1
+1. Python 3.7.3
+2. PyTorch 1.1.0
 3. torchvision 0.2.1
 4. NumPy 1.14.3
 5. SciPy 1.1.0
