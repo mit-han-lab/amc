@@ -137,7 +137,7 @@ def test(epoch, test_loader, save=True):
             'state_dict': net.module.state_dict() if isinstance(net, nn.DataParallel) else net.state_dict(),
             'acc': top1.avg,
             'optimizer': optimizer.state_dict(),
-        }, is_best, checkpoint_dir=log_dir)
+        }, is_best, checkpoint_dir=logdir)
 
 
 def adjust_learning_rate(optimizer, epoch):
@@ -214,7 +214,7 @@ if __name__ == '__main__':
         log_dir = get_output_folder('./logs', '{}_{}_finetune'.format(args.model, args.dataset))
         print('=> Saving logs to {}'.format(log_dir))
         # tf writer
-        writer = SummaryWriter(log_dir=log_dir)
+        writer = SummaryWriter(logdir=log_dir)
 
         for epoch in range(start_epoch, start_epoch + args.n_epoch):
             lr = adjust_learning_rate(optimizer, epoch)

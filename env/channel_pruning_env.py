@@ -564,7 +564,7 @@ class ChannelPruningEnv:
         t1 = time.time()
         with torch.no_grad():
             for i, (input, target) in enumerate(val_loader):
-                target = target.cuda(async=True)
+                target = target.cuda(non_blocking=True)
                 input_var = torch.autograd.Variable(input).cuda()
                 target_var = torch.autograd.Variable(target).cuda()
 

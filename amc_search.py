@@ -228,7 +228,7 @@ if __name__ == "__main__":
             base_folder_name = base_folder_name + '_' + args.suffix
         args.output = get_output_folder(args.output, base_folder_name)
         print('=> Saving logs to {}'.format(args.output))
-        tfwriter = SummaryWriter(log_dir=args.output)
+        tfwriter = SummaryWriter(logdir=args.output)
         text_writer = open(os.path.join(args.output, 'log.txt'), 'w')
         print('=> Output path: {}...'.format(args.output))
 

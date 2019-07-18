@@ -39,13 +39,13 @@ To conduct the full pruning procedure, follow the instructions below (results mi
    To search the strategy on MobileNet ImageNet model, first get the pretrained MobileNet checkpoint on ImageNet by running:
 
    ```
-   ./checkpoints/download.sh
+   bash ./checkpoints/download.sh
    ```
 
    It will also download our 50% FLOPs compressed model. Then run the following script to search under 50% FLOPs constraint:
 
    ```bash
-   ./scripts/search_mobilenet_0.5flops.sh
+   bash ./scripts/search_mobilenet_0.5flops.sh
    ```
 
    Results may differ due to different random seed. The strategy we found and reported in the paper is:
@@ -59,7 +59,7 @@ To conduct the full pruning procedure, follow the instructions below (results mi
    After searching, we need to export the pruned weights by running:
 
    ```
-   ./scripts/export_mobilenet_0.5flops.sh
+   bash ./scripts/export_mobilenet_0.5flops.sh
    ```
 
    Also we need to modify MobileNet file to support the new pruned model (here it is already done in `models/mobilenet.py`)
@@ -69,7 +69,7 @@ To conduct the full pruning procedure, follow the instructions below (results mi
    After exporting, we need to fine-tune from the pruned weights. For example, we can fine-tune using cosine learning rate for 150 epochs by running:
 
    ```
-   ./scripts/finetune_mobilenet_0.5flops.sh
+   bash ./scripts/finetune_mobilenet_0.5flops.sh
    ```
 
 
@@ -94,8 +94,8 @@ Detailed statistics are as follows:
 
 Current code base is tested under following environment:
 
-1. Python 3.6.5
-2. PyTorch 0.4.1
+1. Python 3.7.3
+2. PyTorch 1.1.0
 3. torchvision 0.2.1
 4. NumPy 1.14.3
 5. SciPy 1.1.0
