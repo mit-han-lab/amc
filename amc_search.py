@@ -154,11 +154,11 @@ def train(num_episode, agent, env, output):
                 if episode > args.warmup:
                     agent.update_policy()
 
-            agent.memory.append(
-                observation,
-                agent.select_action(observation, episode=episode),
-                0., False
-            )
+            #agent.memory.append(
+            #    observation,
+            #    agent.select_action(observation, episode=episode),
+            #    0., False
+            #)
 
             # reset
             observation = None
