@@ -137,7 +137,7 @@ def test(epoch, test_loader, save=True):
             'state_dict': net.module.state_dict() if isinstance(net, nn.DataParallel) else net.state_dict(),
             'acc': top1.avg,
             'optimizer': optimizer.state_dict(),
-        }, is_best, checkpoint_dir=logdir)
+        }, is_best, checkpoint_dir=log_dir)
 
 
 def adjust_learning_rate(optimizer, epoch):

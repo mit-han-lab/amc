@@ -2,7 +2,7 @@ python amc_search.py \
     --job=export \
     --model=mobilenet \
     --dataset=imagenet \
-    --data_root=/ssd/dataset/imagenet \
+    --data_root=/dataset/imagenet \
     --ckpt_path=./checkpoints/mobilenet_imagenet.pth.tar \
     --seed=2018 \
     --n_calibration_batches=300 \
