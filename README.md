@@ -12,19 +12,18 @@ If you find the repo useful, please kindly cite our paper:
 
 ```
 @inproceedings{he2018amc,
-  title={Amc: Automl for model compression and acceleration on mobile devices},
+  title={AMC: AutoML for Model Compression and Acceleration on Mobile Devices},
   author={He, Yihui and Lin, Ji and Liu, Zhijian and Wang, Hanrui and Li, Li-Jia and Han, Song},
-  booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
-  pages={784--800},
+  booktitle={European Conference on Computer Vision (ECCV)},
   year={2018}
 }
 ```
 
 Other papers related to automated model design:
 
-- HAQ: Hardware-Aware Automated Quantization [[link]](https://arxiv.org/abs/1811.08886)
+- HAQ: Hardware-Aware Automated Quantization with Mixed Precision ([CVPR 2019](https://arxiv.org/abs/1811.08886))
 
-- ProxylessNAS: Direct Neural Architecture Search on Target Task and Hardware [[link]](https://arxiv.org/abs/1812.00332)
+- ProxylessNAS: Direct Neural Architecture Search on Target Task and Hardware ([ICLR 2019](https://arxiv.org/abs/1812.00332))
 
 
 
