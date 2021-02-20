@@ -23,6 +23,7 @@ class ChannelPruningEnv:
                  batch_size=256, export_model=False, use_new_input=False):
         # default setting
         self.prunable_layer_types = [torch.nn.modules.conv.Conv2d, torch.nn.modules.linear.Linear]
+        self.prunable_layer_types = [torch.nn.modules.conv.Conv2d] #uncomment this line if you want to prune both conv layers and fc layers.
 
         # save options
         self.model = model
@@ -226,7 +227,7 @@ class ChannelPruningEnv:
         mask[preserve_idx] = True
 
         # reconstruct, X, Y <= [N, C]
-        if X.shape[1] > weight.shape[1]: # the case of convolutional layers
+        if weight.shape[2] > 1 or weight.shape[3] > 1: # the case of convolutional layers
             k_size = int(X.shape[1] / weight.shape[1])
             XX = X.reshape((X.shape[0],-1,k_size))
             masked_X = XX[:, mask, :]
