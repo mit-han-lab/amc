@@ -8,6 +8,7 @@ import argparse
 from copy import deepcopy
 import torch
 torch.backends.cudnn.deterministic = True
+import torchvision
 
 from env.channel_pruning_env import ChannelPruningEnv
 from lib.agent import DDPG
@@ -85,6 +86,8 @@ def get_model_and_checkpoint(model, dataset, checkpoint_path, n_gpu=1):
     elif model == 'mobilenetv2' and dataset == 'imagenet':
         from models.mobilenet_v2 import MobileNetV2
         net = MobileNetV2(n_class=1000)
+    elif model == 'vgg16' and dataset == 'imagenet':
+        net = torchvision.models.vgg16(pretrained=True)
     else:
         raise NotImplementedError
     sd = torch.load(checkpoint_path)
